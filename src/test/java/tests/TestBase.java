@@ -12,6 +12,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+
 public class TestBase {
 
     @BeforeAll

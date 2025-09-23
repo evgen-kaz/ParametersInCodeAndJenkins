@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static pages.RegistrationPage.*;
 
 @Tag("Registration")
@@ -15,8 +16,11 @@ public class RegistrationTest extends TestBase {
     @Test
     @Tag("demoqa")
     void successfulRegistrationTest() {
-        registrationPage.openPage()
-                .setFirstName(firstName)
+        registrationPage.openPage();
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("window.onloadCallback = function() { console.log('Fake reCAPTCHA onloadCallback called'); };");
+        registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
                 .setGender("Female")
@@ -44,8 +48,11 @@ public class RegistrationTest extends TestBase {
     @DisplayName("Успешная регистрация с минимальным набором данных")
     @Test
     void successfulRegistrationOnWithAMinimumCountOfDataTest() {
-        registrationPage.openPage()
-                .setFirstName(firstName)
+        registrationPage.openPage();
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("window.onloadCallback = function() { console.log('Fake reCAPTCHA onloadCallback called'); };");
+        registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
                 .setGender("Female")
                 .setUserNumber(phone)
@@ -59,8 +66,11 @@ public class RegistrationTest extends TestBase {
     @DisplayName("Невозможна регистрация с неправильным email")
     @Test
     void registrationIsNotPossibleWithWrongEmailTest() {
-        registrationPage.openPage()
-                .setFirstName(firstName)
+        registrationPage.openPage();
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("window.onloadCallback = function() { console.log('Fake reCAPTCHA onloadCallback called'); };");
+        registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(emailWong)
                 .setGender("Female")
