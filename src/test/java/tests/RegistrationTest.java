@@ -14,7 +14,7 @@ public class RegistrationTest extends TestBase {
 
     @DisplayName("Успешная регистрация с полным набором данных")
     @Test
-    @Tag("positive")
+    @Tag("Positive")
     void successfulRegistrationTest() {
         registrationPage.openPage();
         executeJavaScript("$('#fixedban').remove()");
@@ -47,7 +47,7 @@ public class RegistrationTest extends TestBase {
 
     @DisplayName("Успешная регистрация с минимальным набором данных")
     @Test
-    @Tag("positive")
+    @Tag("Positive")
     void successfulRegistrationOnWithAMinimumCountOfDataTest() {
         registrationPage.openPage();
         executeJavaScript("$('#fixedban').remove()");
@@ -66,7 +66,7 @@ public class RegistrationTest extends TestBase {
 
     @DisplayName("Невозможна регистрация с неправильным email")
     @Test
-    @Tag("negative")
+    @Tag("Negative")
     void registrationIsNotPossibleWithWrongEmailTest() {
         registrationPage.openPage();
         executeJavaScript("$('#fixedban').remove()");

@@ -49,3 +49,15 @@ task registration_test(type: Test) { //тип таски
         includeTags("Registration") //запускаем тесты с тегом Registration
     }
 }
+
+task positive_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Positive")
+    }
+}
+
+task negative_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Negative")
+    }
+}
