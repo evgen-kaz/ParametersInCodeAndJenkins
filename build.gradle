@@ -36,6 +36,8 @@ tasks.withType(JavaCompile) {
 
 test { //запускает все тесты проекта
     useJUnitPlatform()
+    systemProperties(System.getProperties()) //необходима для работы. помогает считывать переменные
+    //systemProperties - устанавливаем проперти в рантйам java, а в System.getProperties() - это проперти, которые пришли на вход в build.gradle, прикидываем их внутрь
     testLogging { //чуть изменили и теперь будет побольше всего выводиться в консоль
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
@@ -59,5 +61,17 @@ task positive_test(type: Test) {
 task negative_test(type: Test) {
     useJUnitPlatform {
         includeTags("Negative")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("property")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("hello")
     }
 }
